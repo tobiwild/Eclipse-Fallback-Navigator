@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.tobiwild.fallbacks.feature"
+      label="Fallback Navigator"
+      version="1.0.1.qualifier"
+      provider-name="tobiwild.de">
+
+   <description>
+      This feature allows to define fallback rules for the folder trees of projects. These fallbacks will be visible in the resource navigator. Rules can be defined in an external yaml file.
+   </description>
+
+   <copyright>
+      Copyright (c) 2010 Tobias Wild
+
+The SnakeYAML library is developed by Andrey Somov and others and it is based on PyYAML module written by Kirill Simonov.
+   </copyright>
+
+   <license url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2010 Tobias Wild, licensed under the Eclipse Public
+License 1.0.
+
+SnakeYAML is released under the Apache 2.0 license.
+   </license>
+
+   <plugin
+         id="de.tobiwild.fallbacks"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

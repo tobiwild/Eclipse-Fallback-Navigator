@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <!-- Phase 1 -->
+   <!-- Declare the view part to hold the default implementation -->
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="de.tobiwild.fallbacks.navigator.category"
+            name="Fallback Navigator"/>
+      <view
+            allowMultiple="false"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/filenav_nav.gif"
+            id="de.tobiwild.fallbacks.navigator.view"
+            name="Fallback View"/>
+   </extension>
+
+   <!-- Declare the viewer configuration, and the default content/action bindings -->
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer viewerId="de.tobiwild.fallbacks.navigator.view"/>
+      <viewerContentBinding viewerId="de.tobiwild.fallbacks.navigator.view">
+         <includes>
+            <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
+            <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+            <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="de.tobiwild.fallbacks.navigator.view">
+         <includes>
+            <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+  <!-- Phase 2 -->
+  <!-- Declare a content extension that renders the contents of a properties file -->
+  <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+
+      <navigatorContent
+            id="de.tobiwild.fallbacks.navigator.fallbackContent"
+            name="Fallback Navigator"
+            contentProvider="de.tobiwild.fallbacks.navigator.FallbackContentProvider"
+            labelProvider="de.tobiwild.fallbacks.navigator.FallbackLabelProvider"
+            activeByDefault="true"
+            icon="icons/prop_ps.gif"
+            priority="normal" >
+         <triggerPoints>
+         	<instanceof value="org.eclipse.core.resources.IResource"/>
+         </triggerPoints>
+         <possibleChildren>
+         	<instanceof value="org.eclipse.core.resources.IResource"/>
+         </possibleChildren>
+      </navigatorContent>
+   </extension>
+   <!-- Bind the Properties content extension to the viewer -->
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding viewerId="de.tobiwild.fallbacks.navigator.view">
+         <includes>
+            <contentExtension pattern="de.tobiwild.fallbacks.navigator.fallbackContent"/>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="de.tobiwild.fallbacks.preferences.FallbackPreferencePage"
+            id="de.tobiwild.fallbacks.preferences.FallbackPreferencePage"
+            name="Fallback Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="de.tobiwild.fallbacks.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+</plugin>
