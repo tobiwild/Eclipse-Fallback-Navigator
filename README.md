@@ -17,19 +17,19 @@ To use fallbacks in the resource navigator, you have to create a yaml file with 
 
 An example:
 
-  ---
-  path: /Frontend/bm/de
-  fallbacks:
-  - /Frontend/bm/global
-  - /Frontend/default/de
-  - /Frontend/default/global
-  image: icons/bm_de.ico
-  
-  ---
-  path: /Frontend/bm/global
-  fallbacks:
-  - /Frontend/default/global
-  image: icons/bm.ico
+    ---
+    path: /Frontend/bm/de
+    fallbacks:
+    - /Frontend/bm/global
+    - /Frontend/default/de
+    - /Frontend/default/global
+    image: icons/bm_de.ico
+    
+    ---
+    path: /Frontend/bm/global
+    fallbacks:
+    - /Frontend/default/global
+    image: icons/bm.ico
 
 The fallback file has to be selected in Eclipse: `Window -> Preferences -> Fallback Preferences`.
 After that, you can see the fallbacks in the *Fallback View* (`Window -> Show View`)
