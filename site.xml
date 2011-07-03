@@ -3,7 +3,9 @@
    <description name="Eclipse Update Site" url="http://tobiwild.github.com/Eclipse-Fallback-Navigator/">
       Eclipse Plugins Update Site
    </description>
-   <feature url="features/de.tobiwild.fallbacks.feature_1.0.1.201107032005.jar" id="de.tobiwild.fallbacks.feature" version="1.0.1.201107032005"/>
+   <feature url="features/de.tobiwild.fallbacks.feature_1.0.1.201107032046.jar" id="de.tobiwild.fallbacks.feature" version="1.0.1.201107032046">
+      <category name="Main-plugins"/>
+   </feature>
    <category-def name="Main-plugins" label="Main Plugins">
       <description>
          Main Plugins
